@@ -1,0 +1,78 @@
+# Please read the corosync.conf.5 manual page
+compatibility: <%= compatibility %>
+
+totem {
+  version: <%= config_version %>
+  <% if nodeid %>
+  nodeid: <%= nodeid %>
+  <% end %>
+  rrp_mode: <%= rrp_mode %>
+  netmtu: <%= netmtu %>
+  secuath: <%= secauth %>
+  threads: <%= threads %>
+  transport: <%= transport %>
+  token: <%= token %>
+  token_retransmit: <%= token_retransmit %>
+  hold: <%= hold %>
+  join: <%= join %>
+  consensus: <%= consensus %>
+  merge: <%= merge %>
+  downcheck: <%= downcheck %>
+  fail_recv_const: <%= fail_recv_const %>
+  seqno_unchanged_const: <%= seqno_unchanged_const %>
+  heartbeat_failures_allowed: <%= heartbeat_failures_allowed %>
+  max_network_delay: <%= max_network_delay %>
+  window_size: <%= window_size %>
+  max_messages: <%= max_messages %>
+  miss_count_const: <%= miss_count_const %>
+  rrp_problem_count_timeout: <%= rrp_problem_count_timeout %>
+  rrp_problem_count_threshold: <%= rrp_problem_count_threshold %>
+  rrp_problem_count_mcast_threshold: <% rrp_problem_count_mcast_threshold %>
+  rrp_token_expired_timeout: <%= rrp_token_expired_timeout %>
+  rrp_autorecovery_check_timeout: <%= rrp_autorecovery_check_timeout %>
+  interface: {
+    ringnumber: <%= ringnumber %>
+    bindnetaddr: <%= bindnetaddr %>
+    broadcast: <%= broadcast %>
+    mcastaddr: <%= mcastaddr %>
+    mcastport: <%= mcastport %>
+    ttl: <%= ttl %>
+    <% if members && members.kind_of?(Array) %>
+      <% member.each do |mem| %>
+        member: <%= mem %>
+      <% end %>
+    <% end %>
+  }
+}
+
+logging {
+  timestamp: <%= timestamp %>
+  fileline: <%= fileline %>
+  to_stderr: <%= to_stderr %>
+  to_logfile: <%= to_logfile %>
+  to_syslog: <%= to_syslog %>
+  <% if to_logfile %>
+  logfile: <%= logfile %>
+  <% end %>
+  logfile_priority: <%= logfile_priority %>
+  syslog_facility: <%= syslog_facility %>
+  syslog_priority: <%= syslog_priority %>
+  debug: <%= logger_debug %>
+  <% if logger_subsys %>
+  logger_subsys {
+    subsys: <%= logger_subsys %>
+    debug: <%= logger_subsys_debug %>
+  }
+  <% end %>
+}
+
+amf {
+  mode: <%= amf %>
+}
+
+service {
+  ver: <%= service_version %>
+  name: <%= service %>
+  use_mgmtd: <%= service_use_mgmtd %>
+  use_logd: <%= service_use_logd %>
+}
