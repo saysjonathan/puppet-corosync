@@ -28,6 +28,7 @@ class corosync::defaults {
   $config                            = '/etc/corosync/corosync.conf'
   $config_version                    = 2 # This is the only valid version
   $consensus                         = 1200
+  $crm_service_version               = 1
   $downcheck                         = 1000
   $fail_recv_const                   = 2500
   $fileline                          = 'off'
