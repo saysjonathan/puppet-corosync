@@ -38,9 +38,11 @@ totem {
     mcastport: <%= mcastport %>
     ttl: <%= ttl %>
     <% if members && members.kind_of?(Array) %>
-      <% member.each do |mem| %>
-        member: <%= mem %>
-      <% end %>
+        <% members.each do |mem| %>
+            	member {
+                    memberaddr: <%= mem %>
+                }
+         <% end %>
     <% end %>
   }
 }
