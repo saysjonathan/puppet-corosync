@@ -7,7 +7,7 @@
 # $bindnetaddr:: Network address to bind to. May be IPv6 [String]
 # $mcastaddr:: Multicast address used. May be IPv6 [String]
 # $authkey:: Private key to authenticate nodes [String]
-# $crm:: Resource manager running on corosync. Necessary for service restarts [String]
+# $crm:: Resource manager running on corosync. Necessary for service restarts [String] and for service section in corosync.conf
 #
 # == Sample Usage:
 # This class is used to manage the whole of corosync through a single interface. Only the 'bindnetaddr', 'authkey', 'mcastaddr', and 'crm' parameters are required:
@@ -32,6 +32,7 @@ class corosync (
   $config_version                    = $config_version,
   $consensus                         = $consensus,
   $crm,
+  $crm_service_version               = $crm_service_version,
   $downcheck                         = $downcheck,
   $fail_recv_const                   = $fail_recv_const,
   $fileline                          = $fileline,
@@ -94,6 +95,7 @@ class corosync (
     config_version                    => $config_version,
     amf                               => $amf,
     compatibility                     => $compatibility,
+    crm_service_version               => $crm_service_version,
     nodeid                            => $nodeid,
     rrp_mode                          => $rrp_mode,
     netmtu                            => $netmtu,
