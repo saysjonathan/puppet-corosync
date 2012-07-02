@@ -13,6 +13,7 @@
 # $broadcast:: [String]
 # $compatibility:: [String]
 # $config_version:: [Integer]
+# $crm_service_version [Integer]
 # $consensus:: [Integer]
 # $downcheck:: [Integer]
 # $fail_recv_const:: [Integer]
@@ -80,6 +81,7 @@ class corosync::config (
   $compatibility,
   $config_version,
   $consensus,
+  $crm_service_version,
   $downcheck,
   $fail_recv_const,
   $function_name,

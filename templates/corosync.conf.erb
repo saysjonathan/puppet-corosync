@@ -38,9 +38,11 @@ totem {
     mcastport: <%= mcastport %>
     ttl: <%= ttl %>
     <% if members && members.kind_of?(Array) %>
-      <% member.each do |mem| %>
-        member: <%= mem %>
-      <% end %>
+        <% members.each do |mem| %>
+            	member {
+                    memberaddr: <%= mem %>
+                }
+         <% end %>
     <% end %>
   }
 }
@@ -71,8 +73,8 @@ amf {
 }
 
 service {
-  ver: <%= service_version %>
-  name: <%= service %>
+  ver: <%= crm_service_version %>
+  name: <%= crm %>
   use_mgmtd: <%= service_use_mgmtd %>
   use_logd: <%= service_use_logd %>
 }
