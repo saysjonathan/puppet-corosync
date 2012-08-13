@@ -9,7 +9,7 @@ class corosync::defaults {
   # OS specific corosync defaults
   case $operatingsystem {
     Debian,Ubuntu: {
-      $package = 'pacemaker'
+      $package = 'corosync'
     }
     CentOS,RedHat,CloudLinux: {
       $package = 'corosync'
